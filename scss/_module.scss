@@ -1,0 +1,23 @@
+//--------------------------
+//------  Logo -------------
+//--------------------------
+
+.navbar__logo {
+    width: 7.5rem;
+    height: 2rem;
+}
+
+//--------------------------
+//------  Hamburger Menu ---
+//--------------------------
+button {
+
+    &.hamburger-menu {
+        border: none;
+
+    }
+
+    &.hamburger-lines {
+        // border-block-width: 2px;
+    }
+}

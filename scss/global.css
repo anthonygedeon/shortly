@@ -1,0 +1,39 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a, a:link, a:hover, a:active, a:visited {
+  text-decoration: none;
+}
+
+.max-width {
+  max-width: 95%;
+}
+
+@media (min-width: 500px) {
+  .max-width {
+    max-width: 85%;
+  }
+}
+
+.navbar__logo {
+  width: 7.5rem;
+  height: 2rem;
+}
+
+button.hamburger-menu {
+  border: none;
+}
+/*# sourceMappingURL=global.css.map */
