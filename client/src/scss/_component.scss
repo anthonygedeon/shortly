@@ -1,0 +1,16 @@
+/*---------------------------------------------------
+BUTTON
+---------------------------------------------------*/
+.button {
+    font-size: 1rem;
+    color: var(--primary-color);
+    background-color: var(--primary-accent);
+    font-weight: var(--font-bold);
+    border: none;
+    border-radius: 6rem;
+    padding: .75em 1.5em;
+
+    &--shorten {
+        border-radius: 4px;
+    }
+}

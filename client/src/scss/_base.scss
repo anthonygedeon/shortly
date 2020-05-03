@@ -29,10 +29,24 @@ VARIABLES - CSS
 VARIABLES - SCSS
 ---------------------------------------------------*/
 
+/*---------------------------------------------------
+MIXINS
+---------------------------------------------------*/
+
+@mixin spaced-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 * {
     box-sizing: border-box;
 }
 
+
+/*---------------------------------------------------
+BASIC STYLING
+---------------------------------------------------*/
 html, body {
     padding: 0;
     margin: 0;
@@ -40,4 +54,32 @@ html, body {
 
 body {
     font-family: var(--primary-font);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+
+    @media screen and (min-width: 760px) {
+        h1, h2, h3, h4 {
+            text-align: left;
+        }
+    }
+}
+
+p {
+    font-size: var(--font-body-size);
+    color: var(--neutral-gray-violet);
+    font-weight: var(--font-medium);
+    text-align: center;
+
+    @media screen and (min-width: 760px) {
+        & {
+            text-align: left;
+        }
+    }
 }

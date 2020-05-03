@@ -20,11 +20,17 @@ VARIABLES - CSS
 /*---------------------------------------------------
 VARIABLES - SCSS
 ---------------------------------------------------*/
+/*---------------------------------------------------
+MIXINS
+---------------------------------------------------*/
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
+/*---------------------------------------------------
+BASIC STYLING
+---------------------------------------------------*/
 html, body {
   padding: 0;
   margin: 0;
@@ -34,9 +40,85 @@ body {
   font-family: var(--primary-font);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  text-align: center;
+}
+
+@media screen and (min-width: 760px) {
+  h1 h1, h1 h2, h1 h3, h1 h4, h2 h1, h2 h2, h2 h3, h2 h4, h3 h1, h3 h2, h3 h3, h3 h4, h4 h1, h4 h2, h4 h3, h4 h4 {
+    text-align: left;
+  }
+}
+
+p {
+  font-size: var(--font-body-size);
+  color: var(--neutral-gray-violet);
+  font-weight: var(--font-medium);
+  text-align: center;
+}
+
+@media screen and (min-width: 760px) {
+  p {
+    text-align: left;
+  }
+}
+
+/*---------------------------------------------------
+CONTAINER
+---------------------------------------------------*/
 .container {
   margin: 0 auto;
-  width: 100%;
+  width: 90%;
   max-width: var(--desktop-max-width);
+}
+
+/*---------------------------------------------------
+HEADER
+---------------------------------------------------*/
+.hero {
+  margin-top: 2em;
+}
+
+.hero__nav-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/*---------------------------------------------------
+MAIN
+---------------------------------------------------*/
+/*---------------------------------------------------
+SECTION
+---------------------------------------------------*/
+/*---------------------------------------------------
+FOOTER
+---------------------------------------------------*/
+/*---------------------------------------------------
+BUTTON
+---------------------------------------------------*/
+.button {
+  font-size: 1rem;
+  color: var(--primary-color);
+  background-color: var(--primary-accent);
+  font-weight: var(--font-bold);
+  border: none;
+  border-radius: 6rem;
+  padding: .75em 1.5em;
+}
+
+.button--shorten {
+  border-radius: 4px;
 }
 /*# sourceMappingURL=index.css.map */
