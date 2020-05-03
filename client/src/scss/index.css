@@ -73,7 +73,7 @@ CONTAINER
 ---------------------------------------------------*/
 .container {
   margin: 0 auto;
-  width: 90%;
+  width: 85%;
   max-width: var(--desktop-max-width);
 }
 
@@ -118,7 +118,7 @@ HEADER
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 2em 0 5em 0;
+  margin: 2em 0 4em 0;
 }
 
 /*---------------------------------------------------
@@ -150,6 +150,78 @@ HERO
 }
 
 /*---------------------------------------------------
+URL SHORTENER
+---------------------------------------------------*/
+.url-shortener {
+  background-color: var(--primary-bg);
+  position: relative;
+  padding: 1.8em;
+  border-radius: 7px;
+  background-image: url(../images/bg-shorten-mobile.svg);
+  background-position: top right;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (min-width: 760px) {
+  .url-shortener {
+    background-image: url(../images/bg-shorten-desktop.svg);
+    background-size: cover;
+  }
+}
+
+.url-shortener__blob {
+  z-index: 10;
+  position: absolute;
+}
+
+.url-shortener__input {
+  padding: .85em 1em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  border: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 2 80%;
+          flex: 1 2 80%;
+}
+
+@media screen and (min-width: 760px) {
+  .url-shortener__input {
+    margin-bottom: 0;
+  }
+}
+
+.url-shortener__input::-webkit-input-placeholder {
+  font-weight: var(--font-bold);
+  color: var(--neutral-gray-violet);
+}
+
+.url-shortener__input:-ms-input-placeholder {
+  font-weight: var(--font-bold);
+  color: var(--neutral-gray-violet);
+}
+
+.url-shortener__input::-ms-input-placeholder {
+  font-weight: var(--font-bold);
+  color: var(--neutral-gray-violet);
+}
+
+.url-shortener__input::placeholder {
+  font-weight: var(--font-bold);
+  color: var(--neutral-gray-violet);
+}
+
+/*---------------------------------------------------
 BUTTON
 ---------------------------------------------------*/
 .button {
@@ -165,5 +237,14 @@ BUTTON
 
 .button--shorten {
   border-radius: 4px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 2 10%;
+          flex: 1 2 10%;
+}
+
+@media screen and (min-width: 760px) {
+  .button--shorten {
+    margin-left: 1em;
+  }
 }
 /*# sourceMappingURL=index.css.map */

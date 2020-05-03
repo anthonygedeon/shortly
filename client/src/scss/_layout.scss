@@ -3,7 +3,7 @@ CONTAINER
 ---------------------------------------------------*/
 .container {
     margin: 0 auto;
-    width: 90%;
+    width: 85%;
     max-width: var(--desktop-max-width);
 }
 
@@ -33,7 +33,7 @@ HEADER
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: 2em 0 5em 0;
+        margin: 2em 0 4em 0;
     }
 }
 
