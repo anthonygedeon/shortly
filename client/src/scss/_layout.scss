@@ -40,15 +40,115 @@ HEADER
 /*---------------------------------------------------
 MAIN
 ---------------------------------------------------*/
+.main {
+    background-color: hsl(225, 33%, 95%);
+    padding: 10em 0 5em 0;
+
+    .col + .col {
+        margin-top: 6em;
+    }
+
+    @media screen and (min-width: 760px){
+        .col {
+            max-width: 25%;
+            margin-top: 0em !important;
+        }
+
+        .col + .col {
+            margin-left: 2em;
+        }
+    }
+
+}
 
 /*---------------------------------------------------
 SECTION
 ---------------------------------------------------*/
+.banner {
+    background-color: var(--primary-bg);
+    position: relative;
+    background-image: url(../images/bg-boost-mobile.svg);
+    background-position: 120% right;
+    background-repeat: no-repeat;
+    padding: 3em 0;
+
+    @media screen and (min-width: 760px){
+        background-image: url(../images/bg-boost-desktop.svg);
+        background-size: cover;
+        padding: 4em;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__title {
+        color: var(--primary-color);
+    }
+}
 
 /*---------------------------------------------------
 FOOTER
 ---------------------------------------------------*/
+.footer {
+    background-color: var(--neutral-dark-violet);
+    padding: 3em 0;
 
+    .logo {
+        margin-bottom: 2em;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (min-width: 760px){
+            flex-direction: row;
+            align-items: flex-start;
+
+        }
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (min-width: 760px){
+            flex-direction: row;
+            align-items: flex-start;
+        }
+    }
+
+    .col--media {
+        display: flex;
+        width: 100%;
+        margin-top: 2em;
+        justify-content: space-evenly;
+    }
+
+    &__title {
+        color: var(--primary-color);
+    }
+
+    &__links {
+        font-size: 0.9rem;
+        color: var(--neutral-body-text);
+        font-weight: var(--font-medium);
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+
+        & + & {
+            margin-top: 1em;
+        }
+    }
+}
 
 .hero__image {
     width: 100%;

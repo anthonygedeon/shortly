@@ -26,7 +26,7 @@ URL SHORTENER
     background-color: var(--primary-bg);
     position: relative;
     padding: 1.8em;
-    border-radius: 7px;
+    border-radius: var(--border-radius);
     background-image: url(../images/bg-shorten-mobile.svg);
     background-position: top right;
     background-repeat: no-repeat;
@@ -34,6 +34,7 @@ URL SHORTENER
     @media screen and (min-width: 760px){
         background-image: url(../images/bg-shorten-desktop.svg);
         background-size: cover;
+        padding: 2.5em;
     }
 
 
@@ -46,20 +47,92 @@ URL SHORTENER
     }
 
     &__input {
-        // width: 100%;
         padding: .85em 1em;
         margin-bottom: 1em;
-        border-radius: 4px;
+        border-radius: var(--border-radius);
         border: none;
         flex: 1 2 80%;
 
         @media screen and (min-width: 760px){
             margin-bottom: 0;
+            height: 3rem;
         }
 
         &::placeholder {
             font-weight: var(--font-bold);
             color: var(--neutral-gray-violet);
+        }
+    }
+}
+
+/*---------------------------------------------------
+MAIN INFO
+---------------------------------------------------*/
+.main {
+
+    &__title {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+    }
+
+    &__text {
+        font-weight: var(--font-medium);
+        font-size: 1rem;
+        margin: 0.7em auto 5em auto;
+        text-align: center;
+        
+        @media screen and (min-width: 760px){
+            max-width: 35%;
+        }
+    }
+}
+
+/*---------------------------------------------------
+CARD
+---------------------------------------------------*/
+.card {
+    position: relative;
+    background: var(--primary-color);
+    padding: 2em 1.5em;
+    height: 18rem;
+    border-radius: var(--border-radius);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: 760px){
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    &__img {
+        position: absolute;
+        top: -40px;
+        background-color: var(--primary-bg);
+        border-radius: 50%;
+        padding: 1em 1em;
+    }
+
+    &__title {
+        margin-top: 2em;
+        font-size: 1.4rem;
+        margin-bottom: 0;
+
+        @media screen and (min-width: 760px){
+            font-size: 1.5rem;
+        }
+    }
+
+    &__text {
+        font-weight: var(--font-medium);
+        font-size: 0.9rem;
+        margin-top: 0.7em;
+        line-height: 26px;
+
+        @media screen and (min-width: 760px){
+            font-size: 1rem;
         }
     }
 }
@@ -74,16 +147,16 @@ BUTTON
     font-weight: var(--font-bold);
     border: none;
     border-radius: 6rem;
-    padding: .75em 1.5em;
+    padding: .85em 2em;
     margin: 0 auto;
 
     &--shorten {
-        border-radius: 4px;
-        // width: 100%;
+        border-radius: var(--border-radius);
         flex: 1 2 10%;
         
         @media screen and (min-width: 760px){
-                margin-left: 1em;
+            margin-left: 1em;
+            padding: 1em 2em;
         }
     }
 }
