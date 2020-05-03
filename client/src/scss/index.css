@@ -2,7 +2,7 @@
 VARIABLES - CSS
 ---------------------------------------------------*/
 :root {
-  --desktop-max-width: 1440px;
+  --desktop-max-width: 1200px;
   --primary-color: hsl(0, 0%, 100%);
   --primary-accent: hsl(180, 66%, 49%);
   --primary-bg: hsl(257, 27%, 26%);
