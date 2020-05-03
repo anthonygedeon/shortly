@@ -27,6 +27,42 @@ HERO
         }
     }   
 
+    &__nav-bar {
+        position: relative;
+    }
+
+    &__nav-menu {
+        position: absolute;
+        top: 50px;
+        background-color: var(--primary-bg);
+        padding: 2em 1em;
+        border-radius: var(--border-radius);
+        display: none;
+
+
+        @media screen and (min-width: 760px){
+            display: none;
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        width: 100%;
+        color: var(--primary-color);
+        font-weight: var(--font-bold);
+        text-align: center;
+
+        & + & {
+            margin-top: 2em;
+        }
+
+        &--login {
+            border-top: 1px solid  hsla(0, 0%, 75%, 0.1);
+            margin-bottom: 2em;
+            padding-top: 2em;
+        }
+    }
+
 }
 
 /*---------------------------------------------------
@@ -60,12 +96,28 @@ URL SHORTENER
         position: absolute;
     }
 
+    &__text-alert {
+        font-style: italic;
+        color: var(--secondary-alert);
+        margin: 0;
+        font-size: 0.9rem;
+        width: 100%;
+        text-align: left;
+        margin-top: 0.5em;
+    }
+
     &__input {
         padding: .85em 1em;
-        margin-bottom: 1em;
         border-radius: var(--border-radius);
         border: none;
+        height: 3rem;
         flex: 1 2 80%;
+
+        &--alert {
+            border: 3px solid var(--secondary-alert);
+        }
+
+        
 
         @media screen and (min-width: 760px){
             margin-bottom: 0;
@@ -183,7 +235,7 @@ BUTTON
         background-color: var(--primary-accent);
         font-weight: var(--font-bold);
     }
-    
+
     @media screen and (min-width: 760px){
         margin: 0 auto 0 0;
 
@@ -197,14 +249,18 @@ BUTTON
     &--shorten {
         border-radius: var(--border-radius);
         flex: 1 2 10%;
+        margin-top: 1em;
         
         @media screen and (min-width: 760px){
             margin-left: 1em;
             padding: 1em 2em;
+            margin-top: 0em;
 
         }
     }
 
-    
+    &--signing-up {
+        width: 100%;
+    }
 }
 

@@ -98,13 +98,13 @@ SECTION
     background-color: var(--primary-bg);
     position: relative;
     background-image: url(../images/bg-boost-mobile.svg);
+    background-size: cover;
     background-position: 120% right;
     background-repeat: no-repeat;
-    padding: 3em 0;
+    padding: 5em 0;
 
     @media screen and (min-width: 760px){
         background-image: url(../images/bg-boost-desktop.svg);
-        background-size: cover;
         padding: 4em;
     }
 

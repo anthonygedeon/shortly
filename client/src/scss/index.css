@@ -15,7 +15,7 @@ VARIABLES - CSS
   --font-bold: 700;
   --font-medium: 500;
   --font-body-size: 1.125rem;
-  --border-radius: 8px;
+  --border-radius: 6px;
 }
 
 /*---------------------------------------------------
@@ -54,6 +54,10 @@ h1, h2, h3, h4 {
   h1 h1, h1 h2, h1 h3, h1 h4, h2 h1, h2 h2, h2 h3, h2 h4, h3 h1, h3 h2, h3 h3, h3 h4, h4 h1, h4 h2, h4 h3, h4 h4 {
     text-align: left;
   }
+}
+
+img {
+  max-width: 100%;
 }
 
 p {
@@ -183,15 +187,15 @@ SECTION
   background-color: var(--primary-bg);
   position: relative;
   background-image: url(../images/bg-boost-mobile.svg);
+  background-size: cover;
   background-position: 120% right;
   background-repeat: no-repeat;
-  padding: 3em 0;
+  padding: 5em 0;
 }
 
 @media screen and (min-width: 760px) {
   .banner {
     background-image: url(../images/bg-boost-desktop.svg);
-    background-size: cover;
     padding: 4em;
   }
 }
@@ -371,6 +375,43 @@ HERO
   }
 }
 
+.hero__nav-bar {
+  position: relative;
+}
+
+.hero__nav-menu {
+  position: absolute;
+  top: 50px;
+  background-color: var(--primary-bg);
+  padding: 2em 1em;
+  border-radius: var(--border-radius);
+  display: none;
+}
+
+@media screen and (min-width: 760px) {
+  .hero__nav-menu {
+    display: none;
+  }
+}
+
+.hero__link {
+  display: inline-block;
+  width: 100%;
+  color: var(--primary-color);
+  font-weight: var(--font-bold);
+  text-align: center;
+}
+
+.hero__link + .hero__link {
+  margin-top: 2em;
+}
+
+.hero__link--login {
+  border-top: 1px solid rgba(191, 191, 191, 0.1);
+  margin-bottom: 2em;
+  padding-top: 2em;
+}
+
 /*---------------------------------------------------
 URL SHORTENER
 ---------------------------------------------------*/
@@ -412,14 +453,28 @@ URL SHORTENER
   position: absolute;
 }
 
+.url-shortener__text-alert {
+  font-style: italic;
+  color: var(--secondary-alert);
+  margin: 0;
+  font-size: 0.9rem;
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5em;
+}
+
 .url-shortener__input {
   padding: .85em 1em;
-  margin-bottom: 1em;
   border-radius: var(--border-radius);
   border: none;
+  height: 3rem;
   -webkit-box-flex: 1;
       -ms-flex: 1 2 80%;
           flex: 1 2 80%;
+}
+
+.url-shortener__input--alert {
+  border: 3px solid var(--secondary-alert);
 }
 
 @media screen and (min-width: 760px) {
@@ -579,12 +634,18 @@ BUTTON
   -webkit-box-flex: 1;
       -ms-flex: 1 2 10%;
           flex: 1 2 10%;
+  margin-top: 1em;
 }
 
 @media screen and (min-width: 760px) {
   .button--shorten {
     margin-left: 1em;
     padding: 1em 2em;
+    margin-top: 0em;
   }
+}
+
+.button--signing-up {
+  width: 100%;
 }
 /*# sourceMappingURL=index.css.map */
