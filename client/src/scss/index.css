@@ -1,3 +1,25 @@
+/*---------------------------------------------------
+VARIABLES - CSS
+---------------------------------------------------*/
+:root {
+  --desktop-max-width: 1440px;
+  --primary-color: hsl(0, 0%, 100%);
+  --primary-accent: hsl(180, 66%, 49%);
+  --primary-bg: hsl(257, 27%, 26%);
+  --secondary-alert: hsl(0, 87%, 67%);
+  --neutral-body-text: hsl(0, 0%, 75%);
+  --neutral-gray-violet:  hsl(257, 7%, 63%);
+  --neutral-very-dark-blue: hsl(255, 11%, 22%);
+  --neutral-dark-violet:  hsl(260, 8%, 14%);
+  --primary-font: 'Poppins', sans-serif;
+  --font-bold: 700;
+  --font-medium: 500;
+  --font-body-size: 1.125rem;
+}
+
+/*---------------------------------------------------
+VARIABLES - SCSS
+---------------------------------------------------*/
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -6,7 +28,15 @@
 html, body {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+}
+
+body {
+  font-family: var(--primary-font);
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--desktop-max-width);
 }
 /*# sourceMappingURL=index.css.map */
