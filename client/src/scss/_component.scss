@@ -113,11 +113,9 @@ URL SHORTENER
         height: 3rem;
         flex: 1 2 80%;
 
-        &--alert {
-            border: 3px solid var(--secondary-alert);
-        }
-
-        
+        // &--alert {
+        //     border: 3px solid var(--secondary-alert);
+        // }
 
         @media screen and (min-width: 760px){
             margin-bottom: 0;

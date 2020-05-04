@@ -473,10 +473,6 @@ URL SHORTENER
           flex: 1 2 80%;
 }
 
-.url-shortener__input--alert {
-  border: 3px solid var(--secondary-alert);
-}
-
 @media screen and (min-width: 760px) {
   .url-shortener__input {
     margin-bottom: 0;
