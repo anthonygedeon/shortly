@@ -71,20 +71,20 @@ URL SHORTENER
 
 .url-shortener {
     background-color: var(--primary-bg);
-    position: relative;
     padding: 1.8em;
+    position: relative;
+    top: -65px;
+    margin-top: 7em;
     border-radius: var(--border-radius);
     background-image: url(../images/bg-shorten-mobile.svg);
     background-position: top right;
     background-repeat: no-repeat;
-    transform: translateY(60px);
 
 
     @media screen and (min-width: 760px){
         background-image: url(../images/bg-shorten-desktop.svg);
         background-size: cover;
         padding: 2.5em;
-        transform: translateY(60px);
     }
 
 
@@ -126,6 +126,73 @@ URL SHORTENER
             font-weight: var(--font-bold);
             color: var(--neutral-gray-violet);
         }
+    }
+}
+
+/*---------------------------------------------------
+Link Shortened
+---------------------------------------------------*/
+.link {
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 1em;
+    position: relative;
+
+    @media screen and (min-width: 760px){
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background-color:hsl(225, 33%, 95%);
+        top: 50px;
+        left: 0;
+
+        @media screen and (min-width: 760px){
+            display: none;
+        }
+    }
+
+
+    &__original-link,
+    &__shortened {
+        text-align: left;
+        font-size: 1.1rem;
+
+        @media screen and (min-width: 760px){
+            margin: 0;
+        }
+    }
+
+    .button--copied {
+        width: 100%;
+        border-radius: var(--border-radius);
+
+
+        @media screen and (min-width: 760px){
+            max-width: 10em;
+            margin-right: 0;
+        }
+    }
+
+    &__original-link {
+        margin-top: 0;
+        margin-right: auto;
+        color: var(--neutral-dark-violet);
+    }
+
+    &__shortened {
+        color: var(--primary-accent);
+
+        @media screen and (min-width: 760px){
+            margin-right: 1em;
+        }
+
     }
 }
 
@@ -226,6 +293,11 @@ BUTTON
     padding: .85em 2em;
     margin: 0 auto;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: hsl(180, 86%, 86%);
+    }
 
     &__primary {
         font-size: 1rem;
