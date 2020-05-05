@@ -108,6 +108,9 @@ HEADER
   .hero__image {
     margin-left: 7em;
   }
+  .hero__menu {
+    display: none;
+  }
   .hero .row {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -523,6 +526,10 @@ Link Shortened
   }
 }
 
+.link + .link {
+  margin-top: 1em;
+}
+
 .link::before {
   content: '';
   position: absolute;
@@ -550,13 +557,17 @@ Link Shortened
   }
 }
 
-.link .button--copied {
+.link .button {
   width: 100%;
   border-radius: var(--border-radius);
 }
 
+.link .button--copied {
+  background-color: var(--primary-bg);
+}
+
 @media screen and (min-width: 760px) {
-  .link .button--copied {
+  .link .button {
     max-width: 10em;
     margin-right: 0;
   }
@@ -584,6 +595,7 @@ MAIN INFO
 .main__title {
   font-size: 1.8rem;
   margin-bottom: 0;
+  margin-top: 4em;
 }
 
 .main__text {
@@ -604,6 +616,7 @@ CARD
 ---------------------------------------------------*/
 .card {
   position: relative;
+  z-index: 10;
   background: var(--primary-color);
   padding: 2em 1.5em;
   height: 18rem;
