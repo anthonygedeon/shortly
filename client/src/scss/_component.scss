@@ -290,16 +290,6 @@ CARD
         flex-direction: row;
         align-items: flex-start;
     }
-
-    // &--middle::before {
-    //     content: '';
-    //     position: absolute;
-    //     left: 0;
-    //     z-index: -1;
-    //     width: 150%;
-    //     background-color: var(--primary-accent);
-    //     height: 10px;
-    // }
     
     &__img {
         position: absolute;
@@ -332,6 +322,30 @@ CARD
 
     
     
+}
+
+.main .row {
+    position: relative;
+}
+
+.col--bar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    width: 200%;
+    background-color: var(--primary-accent);
+    height: 10px;
+    transform: rotate(90deg);
+    left: -160px;
+    top: 480px;
+
+    @media screen and (min-width: 760px){
+        width: 100%;
+        transform: rotate(0deg);
+        left: 0;
+        top: 130px;
+    }
 }
 
 
