@@ -4,6 +4,7 @@ const mainInfo = document.querySelector('.main__url');
 const urlInput = document.querySelector('.url-shortener__input');
 const urlButton = document.querySelector('.button--shorten');
 const textAlert = document.querySelector('.url-shortener__text-alert');
+const menu = document.querySelector('.hero__menu'); 
 
 const getUrlText = () => urlInput.value;
 
@@ -72,3 +73,9 @@ window.addEventListener('click', event => {
         event.target.classList.add('button--copied');
     }
 })
+
+menu.addEventListener('click', () => {
+    document.querySelector('.hero__nav-menu').classList.toggle('hero__nav-menu--show')
+});
+
+module.exports = checkUrlInput;

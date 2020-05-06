@@ -469,6 +469,10 @@ HERO
   display: none;
 }
 
+.hero__nav-menu--show {
+  display: block;
+}
+
 @media screen and (min-width: 760px) {
   .hero__nav-menu {
     display: none;

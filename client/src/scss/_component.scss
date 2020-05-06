@@ -44,6 +44,9 @@ HERO
         border-radius: var(--border-radius);
         display: none;
 
+        &--show {
+            display: block;
+        }
 
         @media screen and (min-width: 760px){
             display: none;
