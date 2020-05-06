@@ -1,27 +1,32 @@
-//  button--copied when clicked
-
 let generateLink = false;
 
 const mainInfo = document.querySelector('.main__url');
 const urlInput = document.querySelector('.url-shortener__input');
 const urlButton = document.querySelector('.button--shorten');
+const textAlert = document.querySelector('.url-shortener__text-alert');
 
 const getUrlText = () => urlInput.value;
+
+const showError = () => {
+    textAlert.classList.add('url-shortener__text-alert--show');
+    urlInput.classList.add('url-shortener__input--alert')
+};
+
+const hideError = () => {
+    urlInput.classList.remove('url-shortener__input--alert')
+    textAlert.classList.remove('url-shortener__text-alert--show');
+
+};
 
 const checkUrlInput = () => {
     const regexUrl = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
 
     if (regexUrl.test(urlInput.value)) {
         generateLink = true;
+        hideError()
+    } else {
+        showError();
     }
-}
-
-const copyShortLink = () => {
-    const copyButton = document.querySelector('.link .button');
-    copyButton.addEventListener('click', (e) => {
-        e.target.textContent = 'Copied!';
-        e.target.classList.add('button--copied');
-    })
 }
 
 const createLinkComponent = (text) => {
@@ -39,13 +44,12 @@ const createLinkComponent = (text) => {
 
     button.classList.add('button');
     button.classList.add('button__primary');
+    button.classList.add('button__link')
     button.textContent = 'Copy';
 
     div.append(paragraphOne);
     div.append(paragraphTwo);
     div.append(button);
-
-    copyShortLink();
 
     return div;
 };
@@ -62,3 +66,9 @@ urlButton.addEventListener('click', () => {
 
 })
 
+window.addEventListener('click', event => {
+    if (event.target.classList.contains('button__link')) {
+        event.target.textContent = 'Copied!';
+        event.target.classList.add('button--copied');
+    }
+})

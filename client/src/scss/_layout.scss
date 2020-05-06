@@ -50,6 +50,7 @@ HEADER
     
         .row {
             align-items: center;
+            margin: 3em 0;
         }
         
         .col {
@@ -65,7 +66,37 @@ HEADER
         }
     }
 
-    
+    &__desktop-link {
+        margin-right: 1em;
+        display: none;
+        color: var(--neutral-gray-violet);
+        transition: color 0.3s ease-in;
+
+        &:hover {
+            color: var(--neutral-dark-violet);
+        }
+
+        @media screen and (min-width: 1040px) {
+            display: flex;
+        }
+
+        &--first {
+            margin-left: 2em;
+        }
+    }
+
+    &__link--desktop-login {
+        margin-left: auto;
+    }
+
+    .button--desktop-signing-up {
+        margin-right: 0;
+        display: none;
+
+        @media screen and (min-width: 1040px) {
+            display: flex;
+        }
+    }
 
 
     &__nav-bar {

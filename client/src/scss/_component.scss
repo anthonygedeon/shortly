@@ -115,6 +115,16 @@ URL SHORTENER
         width: 100%;
         text-align: left;
         margin-top: 0.5em;
+        display: none;
+
+        &--show {
+            display: block;
+        }
+
+        @media screen and (min-width: 760px){
+            position: absolute;
+            top: 87px;
+        }
     }
 
     &__input {
@@ -125,9 +135,13 @@ URL SHORTENER
         height: 3rem;
         flex: 1 2 80%;
 
-        // &--alert {
-        //     border: 3px solid var(--secondary-alert);
-        // }
+        &--alert {
+            border: 3px solid var(--secondary-alert);
+
+            &::placeholder-shown {
+                color: var(--secondary-alert);
+            }
+        }
 
         @media screen and (min-width: 760px){
             margin-bottom: 0;
