@@ -11,8 +11,11 @@
 			sizes="32x32"
 			href="./images/favicon-32x32.png"
 		/>
-		<link rel="stylesheet" href="./css/main.css">
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="./css/main.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+			rel="stylesheet"
+		/>
 
 		<title>Frontend Mentor | Shortly URL shortening API Challenge</title>
 	</head>
@@ -101,35 +104,34 @@
 
 		<main class="main">
 			<div class="container">
-				<picture>
-					<source
-						srcset="./images/bg-shorten-desktop.svg"
-						media="(min-width: 764px)"
-					/>
-					<img
-						class="main__blob"
-						src="./images/bg-shorten-mobile.svg"
-						alt="Blob"
-					/>
-				</picture>
 				<div class="url">
-					<div class="container url__row url__container">
+					<div class="shorten">
+						<picture>
+							<source
+								srcset="./images/bg-shorten-desktop.svg"
+								media="(min-width: 764px)"
+							/>
+							<img
+								class="main__blob"
+								src="./images/bg-shorten-mobile.svg"
+								alt="Blob"
+							/>
+						</picture>
 						<input
 							type="text"
-							class="url__input"
+							class="shorten__input"
 							placeholder="Shorten a link here..."
 						/>
-						<p class="url__warning" hidden>Please add a link</p>
+						<p class="shorten__warning" hidden>Please add a link</p>
 						<button class="button button--flexible">
 							Shorten it!
 						</button>
 					</div>
-
-					<div class="url-copy" hidden>
-						<p class="url-copy__original">
+					<div class="shorten-copy" hidden>
+						<p class="shorten-copy__original">
 							https://www.frontendmentor.io
 						</p>
-						<p class="url-copy__shorten">https://sho.ly/k4IKyk</p>
+						<p class="shorten-copy__shorten">https://sho.ly/k4IKyk</p>
 						<button
 							class="button button--primary button--full-width button--copied-background"
 						>
@@ -213,7 +215,7 @@
 		</section>
 
 		<footer class="footer">
-			<div class="container">
+			<div class="container row">
 				<div class="footer__logo-container">
 					<svg
 						class="logo"
@@ -227,13 +229,15 @@
 						/>
 					</svg>
 				</div>
-	
+
 				<div class="footer__info">
 					<div class="footer__links">
 						<h3 class="footer__heading">Features</h3>
 						<ul class="list">
 							<li class="list__item">
-								<a href="#" class="list__link">Link Shortening</a>
+								<a href="#" class="list__link"
+									>Link Shortening</a
+								>
 							</li>
 							<li class="list__item">
 								<a href="#" class="list__link">Branded Links</a>
@@ -243,7 +247,7 @@
 							</li>
 						</ul>
 					</div>
-	
+
 					<div class="footer__links">
 						<h3 class="footer__heading">Resources</h3>
 						<ul class="list">
@@ -258,7 +262,7 @@
 							</li>
 						</ul>
 					</div>
-	
+
 					<div class="footer__links">
 						<h3 class="footer__heading">Company</h3>
 						<ul class="list">
@@ -276,7 +280,7 @@
 							</li>
 						</ul>
 					</div>
-	
+
 					<div class="footer__medias">
 						<svg
 							class="footer__media"
