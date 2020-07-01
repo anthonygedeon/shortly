@@ -8,9 +8,9 @@ $base-bg-color: hsl(257, 27%, 26%) !default;
 
 $alert-warning-color: hsl(0, 87%, 67%) !default;
 
-$primary-color: hsl(260, 8%, 14%) !default;
+$heading-color: hsl(255, 11%, 22%) !default;
 $secondary-color: hsl(257, 7%, 63%) !default;
-$links-color: hsl(255, 11%, 22%) !default;
+$bg-footer-color: hsl(260, 8%, 14%) !default;
 $bg-main-color: hsl(0, 0%, 75%) !default;
 
 $body-copy: 1.125rem !default;
@@ -47,6 +47,11 @@ $max-widths: (
 // --------------------------------------------
 //  BASIC STYLES
 // --------------------------------------------
+
+body {
+    font-family: $primary-font;
+}
+
 h1, h2, h3 {
     margin: 0;
 }
