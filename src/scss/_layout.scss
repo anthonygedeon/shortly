@@ -3,118 +3,129 @@
 // --------------------------------------------
 
 .container {
-    width: 100%;
-    max-width: 325px;
-    margin: 0 auto;
+	width: 100%;
+	max-width: map-get($max-widths, 'small');
+	@include push--auto;
 
-    @media screen and (min-width: map-get($break-points, "medium" )) {
-        max-width: 700px;
-    }
+	@include respond-to('medium') {
+		max-width: map-get($max-widths, 'medium');
+	}
 
-    @media screen and (min-width: map-get($break-points, "large" )) {
-        max-width: 860px;
-    }
+	@include respond-to('large') {
+		max-width: map-get($max-widths, 'large');
+	}
 
-    @media screen and (min-width: map-get($break-points, "extra-large" )) {
-        max-width: 1240px;
-    }
+	@include respond-to('extra-large') {
+		max-width: map-get($max-widths, 'extra-large');
+	}
 }
 
 .row {
-    
-    @media screen and (min-width: map-get($break-points, "large" )) {
-        display: flex;
-    }
+	@include respond-to('large') {
+		@include flex-config;
+	}
 }
 
 // --------------------------------------------
 //  HEADER
 // --------------------------------------------
-.header {
-    margin-top: 3em;
 
-    &__container {
-        position: relative;
+.header {
+    @include padding(2em, null, 1em, null);
+
+    @include respond-to('medium') {
+        @include padding(2em, null, 7em, null);
     }
 
+	&__container {
+		position: relative;
+	}
 
-    &__row {
-        display: flex;
-        justify-content: space-between;
-
-        @media screen and (min-width: map-get($break-points, "medium" )) {
-            justify-content: flex-start;
+	&__row {        
+        @include flex-config($justify-content: space-between);
+        
+        @include respond-to('large') {
+            @include flex-config($justify-content: flex-start);
         }
     }
     
-    .logo {
-        height: 40px;
+    &__logo {
+        display: block;
     }
 }
 
 .intro {
 
-    &__row {
-        align-items: center;
-        justify-content: space-between;
-    }
+    @include margin(2em, null, 2em, null);
 
-    
-    &__image-container {
-        margin: 1em 0 2em 0;
+	&__row {
+		align-items: center;
+		justify-content: space-between;
+	}
 
-        @media screen and (min-width: map-get($break-points, "large" )) {
+	&__image-container {
+        
+        @include margin(null, null, 2em, null);
+
+        @include respond-to('large') {
+            @include margin(null, null, 0, null);
+        }
+
+        @include respond-to('large') {
             order: 10;
         }
     }
-
-    &__text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 10em;
-
-        @media screen and (min-width: map-get($break-points, "large" )) {
-            order: 0;
-            align-items: flex-start;
-            max-width: 40%;
-            margin-bottom: 0em;
-        }
+    
+    &__image {
+        display: block;
     }
 
-    &__heading, 
-    &__details {
-        text-align: center;
+	&__text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 10em;
+        
+        @include respond-to('large') {
+            order: 0;
+			align-items: flex-start;
+			max-width: 40%;
+			margin-bottom: 0em;
+        }
+	}
 
-        @media screen and (min-width: map-get($break-points, "large" )) {
+	&__heading,
+	&__details {
+		text-align: center;
+        
+        @include respond-to('large') {
             text-align: left;
         }
-    }
+	}
 
-    &__heading {
-        line-height: 1;
-        font-size: 2.75rem;
-        font-weight: $font-bold;
+	&__heading {
+		line-height: 1;
+		font-size: 2.75rem;
+		font-weight: $font-bold;
         color: $heading-color;
-
-        @media screen and (min-width: map-get($break-points, "large" )) {
-            line-height: 1.2;
+        
+        @include respond-to('large') {
+			line-height: 1.2;
+            
         }
-
-        @media screen and (min-width: map-get($break-points, "extra-large" )) {
+        
+        @include respond-to('extra-large') {
             font-size: 4rem;
-            line-height: 1.2;
+			line-height: 1.2;
         }
-    }
+	}
 
-    &__details {
-        font-weight: $font-medium;
-        color: $secondary-color;
-        margin: 1em 0;
-        font-size: $body-copy;
-    }
-
-    
+	&__details {
+		font-weight: $font-medium;
+		color: $secondary-color;
+		margin: 1em 0;
+		font-size: $body-copy;
+	}
 }
 
 // --------------------------------------------
@@ -122,83 +133,81 @@
 // --------------------------------------------
 
 .main {
-    background-color: hsl(230, 25%, 95%);
-    margin-top: 5em;
-    padding: 0 0 5em 0;
-
-    @media screen and (min-width: map-get($break-points, "medium" )) {
-        padding-bottom: 8em;
+	background-color: hsl(230, 25%, 95%);
+	padding: $container-padding;
+    
+    @include respond-to('medium') {
+        @include padding(null, null, 8em, null);
     }
 
-    .url {
-        transform: translateY(-80px)
-    }
+	.url {
+		transform: translateY(-4em * 2);
+	}
 
-    &__header {
-        margin: 4em 0 5em 0;
-    }
+	&__header {
+		@include margin(3em, null, 5em, null);
+	}
 
-    &__heading, 
-    &__details {
-        text-align: center;
-    }
+	&__heading,
+	&__details {
+		text-align: center;
+	}
 
-    &__heading {
-        font-size: 1.5rem;
-        font-weight: $font-bold;
-        color: $heading-color;
-
-        @media screen and (min-width: map-get($break-points, "medium" )) {
+	&__heading {
+		font-size: 1.5rem;
+		font-weight: $font-bold;
+		color: $heading-color;
+        
+        @include respond-to('medium') {
             font-size: 2.25rem;
         }
-    }
+	}
 
-    &__details {
-        font-weight: $font-medium;
-        color: $secondary-color;
-        margin: 1em 0;
-        font-size: $body-copy;
-        line-height: 1.7;
-
-        @media screen and (min-width: map-get($break-points, "medium" )) {
+	&__details {
+		font-weight: $font-medium;
+		color: $secondary-color;
+		margin: 1em 0;
+		font-size: $body-copy;
+		line-height: 1.7;
+        
+        @include respond-to('medium') {
             max-width: 40%;
-            margin: 0 auto;
+            @include push--auto;
         }
-    }
+	}
 }
 
 // --------------------------------------------
-//  SECTION - NEWSLETTER 
+//  SECTION - NEWSLETTER
 // --------------------------------------------
 .newsletter {
-    background-color: $base-bg-color;
-    padding: 5em 0;
-    background: 
-        top right
-        no-repeat
-        $base-bg-color
-        url(../images/bg-boost-mobile.svg);
-        background-size: cover;
+	background-color: $base-bg-color;
+	padding: $container-padding;
+	background: top right no-repeat $base-bg-color
+		url(../images/bg-boost-mobile.svg);
+	background-size: cover;
 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__heading {
+		font-weight: $font-bold;
+		color: $white;
+		font-size: 1.5rem;
+		margin-bottom: 1em;
         
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+        @include respond-to('medium') {
+            font-size: 2rem;
+        }
 
-    &__heading {
-        font-weight: $font-bold;
-        color: $white;
-        font-size: 1.5rem;
-        margin-bottom: 1em;
-
-        @media screen and (min-width: map-get($break-points, "medium" )) {
+        @include respond-to('large') {
             font-size: 3rem;
         }
-    }
-
-
-    @media screen and (min-width: map-get($break-points, "medium" )) {
+	}
+    
+    @include respond-to('medium') {
         background-image: url(../images/bg-boost-desktop.svg);
         background-size: cover;
     }
@@ -207,88 +216,98 @@
 // --------------------------------------------
 //  FOOTER
 // --------------------------------------------
+
 .footer {
-    background-color: $bg-footer-color;
-    padding: 3em 0;
+	background-color: $bg-footer-color;
+	padding: $container-padding;
 
-    &__info {
-        justify-content: space-between;
-    }
+	&__info {
+		justify-content: space-between;
+	}
 
-    &__logo-container {
-        text-align: center;
-        margin-bottom: 2em;
-
-        @media screen and (min-width: map-get($break-points, "large" )) {
+	&__logo-container {
+		text-align: center;
+		margin-bottom: 2em;
+        
+        @include respond-to('large') {
             margin-right: auto;
         }
-    }
+	}
 
-    &__heading {
-        font-weight: $font-bold;
-        color: $white;
-        font-size: 0.9rem;
-        text-align: center;
-        margin-bottom: 1em;
-
-        @media screen and (min-width: map-get($break-points, "large" )) {
-            text-align: start;
-        }
-    }
-
-    .list__item {
-        font-weight: $font-medium;
-        text-align: center;
-        color: $secondary-color;
-        margin-bottom: 1em;
-
-        &:hover {
-            transition: color 0.3s ease-in;
-            color: $base-color;
-        }
-
-        @media screen and (min-width: map-get($break-points, "large" )) {
-            text-align: start;
-        }
-    }
-
-    &__info {
-        @media screen and (min-width: map-get($break-points, "large" )) {
-            display: flex;
-            align-items: flex-start;
-        }
-    }
-    
-    &__medias {
-        text-align: center;
-    }
-
-    @media screen and (min-width: map-get($break-points, "large" )) {
+	&__heading {
+		font-weight: $font-bold;
+		color: $white;
+		font-size: 0.9rem;
+		text-align: center;
+		margin-bottom: 1em;
         
-        &__links--2 {
-            margin: 0 7em;
+        @include respond-to('large') {
+            text-align: start;
         }
+	}
 
-        &__links--3 {
-            margin-right: 7em;
+	.list__item {
+		font-weight: $font-medium;
+		text-align: center;
+		color: $secondary-color;
+		margin-bottom: 1em;
+        
+        @include respond-to('large') {
+            text-align: start;
+
         }
     }
+    
+    .list__link {
+        @include link(
+            $secondary-color,
+            $secondary-color,
+            $base-color,
+            $secondary-color
+        );
+    }
 
-    &__media {
-        fill: $white;
-        cursor: pointer;
+	&__info {
+        @include respond-to('large') {
+            display: flex;
+			align-items: flex-start;
+        }
+	}
 
-        &:hover {
-            transition: fill 0.2s ease-in;
-            fill: $base-color;
-            
+	&__medias {
+        text-align: center;
+        
+        @include respond-to('large') {
+            margin-left: 4em;
+        }
+	}
+
+	&__media {
+		fill: $white;
+		cursor: pointer;
+
+		&:hover {
+			@include transition(
+				$property: fill,
+				$duration: 0.2s,
+				$timing: ease-in
+			);
+			fill: $base-color;
+        }
+        
+        
+    }
+    
+    @include respond-to('large') {
+        &__links + &__links {
+            margin-left: 4em;
         }
     }
     
 
-    &__media + &__media {
-        margin-left: 2em;
-    }
+	&__media + &__media {
+		margin-left: 2em;
+	}
 }
 
 // --------------------------------------------
@@ -297,31 +316,28 @@
 
 .card-components {
     position: relative;
-
-    @media screen and (min-width: map-get($break-points, "large" )) {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0px;
-        left: calc(100% / 2);
-        background-color: $base-color;
-        height: 100%;
-        width: 7px;
-        
-        @media screen and (min-width: map-get($break-points, "large" )) {
-            transform: rotate(180deg);
-            top: 300px;
-            width: 100%;
-            height: 7px;
-            left: 0;
-        }
-    }
-
     
+    @include respond-to('large') {
+        display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+    }
+
+	&::before {
+		@include pseudo;
+		top: 0px;
+		left: calc(100% / 2);
+		background-color: $base-color;
+		height: 100%;
+		width: 7px;
+        
+        @include respond-to('large') {
+            transform: rotate(180deg);
+			top: 300px;
+			width: 100%;
+			height: 7px;
+			left: 0;
+        }
+	}
 }
