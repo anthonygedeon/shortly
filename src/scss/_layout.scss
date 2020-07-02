@@ -8,13 +8,24 @@
     margin: 0 auto;
 
     @media screen and (min-width: map-get($break-points, "medium" )) {
-        max-width: 1440px;
+        max-width: 700px;
+    }
+
+    @media screen and (min-width: map-get($break-points, "large" )) {
+        max-width: 860px;
+    }
+
+    @media screen and (min-width: map-get($break-points, "extra-large" )) {
+        max-width: 1240px;
     }
 }
 
-// .row {
-//     display: flex;
-// }
+.row {
+    
+    @media screen and (min-width: map-get($break-points, "large" )) {
+        display: flex;
+    }
+}
 
 // --------------------------------------------
 //  HEADER
@@ -22,28 +33,62 @@
 .header {
     margin-top: 3em;
 
+    &__container {
+        position: relative;
+    }
+
+
     &__row {
         display: flex;
         justify-content: space-between;
+
+        @media screen and (min-width: map-get($break-points, "medium" )) {
+            justify-content: flex-start;
+        }
+    }
+    
+    .logo {
+        height: 40px;
     }
 }
 
 .intro {
 
+    &__row {
+        align-items: center;
+        justify-content: space-between;
+    }
+
     
     &__image-container {
         margin: 1em 0 2em 0;
+
+        @media screen and (min-width: map-get($break-points, "large" )) {
+            order: 10;
+        }
     }
 
     &__text {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 10em;
+
+        @media screen and (min-width: map-get($break-points, "large" )) {
+            order: 0;
+            align-items: flex-start;
+            max-width: 40%;
+            margin-bottom: 0em;
+        }
     }
 
     &__heading, 
     &__details {
         text-align: center;
+
+        @media screen and (min-width: map-get($break-points, "large" )) {
+            text-align: left;
+        }
     }
 
     &__heading {
@@ -51,6 +96,15 @@
         font-size: 2.75rem;
         font-weight: $font-bold;
         color: $heading-color;
+
+        @media screen and (min-width: map-get($break-points, "large" )) {
+            line-height: 1.2;
+        }
+
+        @media screen and (min-width: map-get($break-points, "extra-large" )) {
+            font-size: 4rem;
+            line-height: 1.2;
+        }
     }
 
     &__details {
@@ -71,6 +125,46 @@
     background-color: hsl(230, 25%, 95%);
     margin-top: 5em;
     padding: 0 0 5em 0;
+
+    @media screen and (min-width: map-get($break-points, "medium" )) {
+        padding-bottom: 8em;
+    }
+
+    .url {
+        transform: translateY(-80px)
+    }
+
+    &__header {
+        margin: 4em 0 5em 0;
+    }
+
+    &__heading, 
+    &__details {
+        text-align: center;
+    }
+
+    &__heading {
+        font-size: 1.5rem;
+        font-weight: $font-bold;
+        color: $heading-color;
+
+        @media screen and (min-width: map-get($break-points, "medium" )) {
+            font-size: 2.25rem;
+        }
+    }
+
+    &__details {
+        font-weight: $font-medium;
+        color: $secondary-color;
+        margin: 1em 0;
+        font-size: $body-copy;
+        line-height: 1.7;
+
+        @media screen and (min-width: map-get($break-points, "medium" )) {
+            max-width: 40%;
+            margin: 0 auto;
+        }
+    }
 }
 
 // --------------------------------------------
@@ -78,6 +172,36 @@
 // --------------------------------------------
 .newsletter {
     background-color: $base-bg-color;
+    padding: 5em 0;
+    background: 
+        top right
+        no-repeat
+        $base-bg-color
+        url(../images/bg-boost-mobile.svg);
+        background-size: cover;
+
+        
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__heading {
+        font-weight: $font-bold;
+        color: $white;
+        font-size: 1.5rem;
+        margin-bottom: 1em;
+
+        @media screen and (min-width: map-get($break-points, "medium" )) {
+            font-size: 3rem;
+        }
+    }
+
+
+    @media screen and (min-width: map-get($break-points, "medium" )) {
+        background-image: url(../images/bg-boost-desktop.svg);
+        background-size: cover;
+    }
 }
 
 // --------------------------------------------
@@ -85,4 +209,119 @@
 // --------------------------------------------
 .footer {
     background-color: $bg-footer-color;
+    padding: 3em 0;
+
+    &__info {
+        justify-content: space-between;
+    }
+
+    &__logo-container {
+        text-align: center;
+        margin-bottom: 2em;
+
+        @media screen and (min-width: map-get($break-points, "large" )) {
+            margin-right: auto;
+        }
+    }
+
+    &__heading {
+        font-weight: $font-bold;
+        color: $white;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-bottom: 1em;
+
+        @media screen and (min-width: map-get($break-points, "large" )) {
+            text-align: start;
+        }
+    }
+
+    .list__item {
+        font-weight: $font-medium;
+        text-align: center;
+        color: $secondary-color;
+        margin-bottom: 1em;
+
+        &:hover {
+            transition: color 0.3s ease-in;
+            color: $base-color;
+        }
+
+        @media screen and (min-width: map-get($break-points, "large" )) {
+            text-align: start;
+        }
+    }
+
+    &__info {
+        @media screen and (min-width: map-get($break-points, "large" )) {
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+    
+    &__medias {
+        text-align: center;
+    }
+
+    @media screen and (min-width: map-get($break-points, "large" )) {
+        
+        &__links--2 {
+            margin: 0 7em;
+        }
+
+        &__links--3 {
+            margin-right: 7em;
+        }
+    }
+
+    &__media {
+        fill: $white;
+        cursor: pointer;
+
+        &:hover {
+            transition: fill 0.2s ease-in;
+            fill: $base-color;
+            
+        }
+    }
+    
+
+    &__media + &__media {
+        margin-left: 2em;
+    }
+}
+
+// --------------------------------------------
+//  CARDS CONTAINER
+// --------------------------------------------
+
+.card-components {
+    position: relative;
+
+    @media screen and (min-width: map-get($break-points, "large" )) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: calc(100% / 2);
+        background-color: $base-color;
+        height: 100%;
+        width: 7px;
+        
+        @media screen and (min-width: map-get($break-points, "large" )) {
+            transform: rotate(180deg);
+            top: 300px;
+            width: 100%;
+            height: 7px;
+            left: 0;
+        }
+    }
+
+    
 }
