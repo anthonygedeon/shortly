@@ -1,71 +1,49 @@
-// --------------------------------------------
-//  VARIABLES
-// --------------------------------------------
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
 
-$white: hsl(0, 0%, 100%);
-$base-color: hsl(180, 66%, 49%) !default;
-$base-bg-color: hsl(257, 27%, 26%) !default;
-
-$alert-warning-color: hsl(0, 87%, 67%) !default;
-
-$heading-color: hsl(255, 11%, 22%) !default;
-$secondary-color: hsl(257, 7%, 63%) !default;
-$bg-footer-color: hsl(260, 8%, 14%) !default;
-$bg-main-color: hsl(0, 0%, 75%) !default;
-
-$body-copy: 1.125rem !default;
-
-$primary-font: 'Poppins', sans-serif !default;
-$font-bold: 700 !default;
-$font-medium: 500 !default;
-
-$border-radius: 8px !default;
-$border-pill: 10rem !default;
-
-$container-padding: 4em 0;
-
-$line-opacity: 0.2;
-
-$break-points: (
-	'small': 640px,
-	'medium': 768px,
-	'large': 1024px,
-	'extra-large': 1280px,
-) !default;
-
-$max-widths: (
-	'small': 325px,
-	'medium': 700px,
-	'large': 860px,
-	'extra-large': 1240px,
-) !default;
-
-// --------------------------------------------
-//  MIXINS
-// --------------------------------------------
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+	@if $self {
+		&,
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	} @else {
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	}
+}
 
 /// Specify the state of links
-/// @param {String} $link 
+/// @param {String} $link
 /// @param {String} $visit
 /// @param {String} $hover
 /// @param {String} $active
-/// @require colors 
+/// @require colors
 /// @TODO
-    // - when link is clicked, color does not change
+// - when link is clicked, color does not change
 @mixin link($link, $visit, $hover, $active) {
+	color: $link;
 
-    color: $link;
-    
-    &:visited {
-        color: $visit;
-    }
-    &:hover {
-        @include transition(color, 0.2s , ease-in);
-        color: $hover;
-    }
-    &:active {
-        color: $active;
-    }
+	&:visited {
+		color: $visit;
+	}
+	&:hover {
+		@include transition(color, 0.2s, ease-in);
+		color: $hover;
+	}
+	&:active {
+		color: $active;
+	}
 }
 
 /// Specify padding, use null if no space should be used
@@ -157,7 +135,7 @@ $max-widths: (
 	// If the key doesn't exist in the map
 	@else {
 		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-            + "Available breakpoints are: #{map-keys($break-points)}.";
+              + "Available breakpoints are: #{map-keys($break-points)}.";
 	}
 }
 
@@ -177,49 +155,4 @@ $max-widths: (
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-
-// --------------------------------------------
-//  RESETS
-// --------------------------------------------
-
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
-
-// --------------------------------------------
-//  BASIC STYLES
-// --------------------------------------------
-
-body {
-	font-family: $primary-font;
-}
-
-h1,
-h2,
-h3 {
-	margin: 0;
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
-}
-
-input {
-	border: none;
-}
-
-button {
-	all: unset;
-}
-
-img {
-	max-width: 100%;
-}
-
-ul li {
-	list-style: none;
 }

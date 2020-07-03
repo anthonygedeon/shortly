@@ -1,0 +1,44 @@
+.main {
+	background-color: hsl(230, 25%, 95%);
+	padding: $container-padding;
+    
+    @include respond-to('medium') {
+        @include padding(null, null, 8em, null);
+    }
+
+	.url {
+		transform: translateY(-4em * 2);
+	}
+
+	&__header {
+		@include margin(3em, null, 5em, null);
+	}
+
+	&__heading,
+	&__details {
+		text-align: center;
+	}
+
+	&__heading {
+		font-size: 1.5rem;
+		font-weight: $font-bold;
+		color: $heading-color;
+        
+        @include respond-to('medium') {
+            font-size: 2.25rem;
+        }
+	}
+
+	&__details {
+		font-weight: $font-medium;
+		color: $secondary-color;
+		margin: 1em 0;
+		font-size: $body-copy;
+		line-height: 1.7;
+        
+        @include respond-to('medium') {
+            max-width: 40%;
+            @include push--auto;
+        }
+	}
+}
