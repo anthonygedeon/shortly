@@ -1,0 +1,16 @@
+.menu {
+
+    cursor: pointer;
+
+    display: block;
+
+    &__line {
+        stroke: $bg-main-color;
+    }
+
+    @include respond-to('large') {
+        &--hide {
+            display: none;
+        }
+    }
+}
