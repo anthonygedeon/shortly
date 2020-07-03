@@ -1,6 +1,4 @@
 import '../scss/main.scss';
-import html from '../index.html';
-import workingImage from '../images/illustration-working.svg';
 
 const menu = document.querySelector('.menu');
 const menuModal = document.querySelector('.menu-modal');
