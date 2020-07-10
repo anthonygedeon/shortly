@@ -96,6 +96,17 @@
 		font-weight: $font-medium;
 		color: $secondary-color;
 		margin: 1em 0;
-		font-size: $body-copy;
+        font-size: $body-copy;
+        line-height: 1.5;
+        
+        @include respond-to('medium') {
+            line-height: 2;
+            max-width: 70%;
+        }
+        
+        @include respond-to('large') {
+            line-height: 1.75;
+            max-width: 90%;
+        }
 	}
 }

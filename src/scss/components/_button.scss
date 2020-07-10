@@ -6,7 +6,7 @@
     background-color: $base-color;
     color: $white;
     text-align: center;
-    padding: 0.75em 0;
+    padding: 1em 0;
     font-weight: $font-bold;
     cursor: pointer;
 
@@ -16,7 +16,7 @@
     }
     
     &--primary {
-        width: 12rem;
+        width: 10rem;
         border-radius: $border-pill;
     }
 
