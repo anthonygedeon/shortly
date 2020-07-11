@@ -2,7 +2,7 @@
     background-color: $base-bg-color;
     border-radius: $border-radius;
     position: relative;
-    padding: 1.75em 1.5em;
+    padding: 1.75em 1.9em;
     background: 
         no-repeat
         $base-bg-color
@@ -12,7 +12,7 @@
     @include respond-to('large') {
         display: flex;
         background-image: url(../images/bg-shorten-desktop.svg);
-        padding: 3em;
+        padding: 3.5em;
     }
 
     &__warning {
@@ -28,22 +28,25 @@
     }
 
     &__input {
-        padding: 1.5em 0 1.5em 0.95em;
+        padding: 1em 0 1em 0.95em;
         width: 100%;
         border-radius: $border-radius;
         margin-bottom: 1em;
-        height: 100%;
         font-size: $body-copy;
         font-weight: $font-medium;
         color: $heading-color;
         
         &:focus {
-            outline: solid $base-color;
+            @include transition(box-shadow, 0.2s, ease-in) ;
+            box-shadow: 1px 0px 0px 6px hsl(254, 27%, 44%);
+            outline: none;
         }
 
         @include respond-to('large') {
             margin-right: 2em;
             margin-bottom: 0;
+            padding-top: 1.5em;
+            padding-bottom: 1.5em;
         }
         
         &::placeholder {

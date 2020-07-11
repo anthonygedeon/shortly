@@ -24,7 +24,7 @@
 				<a class="header__logo-link" href="#"
 					><img src="./images/logo.svg" alt="Shortly" class="logo header__logo"
 				/></a>
-				<nav class="navigation navigation--show">
+				<nav class="navigation navigation--show navigation--hide">
 					<a href="https://www.google.com" target="_blank" class="navigation__link">Features</a>
 					<a href="https://www.google.com" target="_blank" class="navigation__link">Pricing</a>
 					<a href="https://www.google.com" target="_blank" class="navigation__link navigation__link--space-right">Resources</a>
@@ -110,11 +110,13 @@
 							class="shorten__input"
 							placeholder="Shorten a link here..."
 						/>
-						<!-- <p class="shorten__warning">Please add a link</p> -->
-						<button class="button button--flexible">
+						<button class="button button--flexible js-button-shorten-url">
 							Shorten it!
 						</button>
 					</form>
+					<div class="warning" hidden>
+						<p class="warning__text">This is already a Shortly link</p>
+					</div>
 					<!-- <div class="shorten-copy" >
 						<p class="shorten-copy__original">
 							https://www.frontendmentor.io
@@ -127,31 +129,6 @@
 							Copy
 						</button>
 					</div>
-
-					<div class="shorten-copy" >
-						<p class="shorten-copy__original">
-							https://www.frontendmentor.io
-						</p>
-						<hr class="shorten-copy__line">
-						<p class="shorten-copy__shorten">https://sho.ly/k4IKyk</p>
-						<button
-							class="button button--primary button--full-width js-copy-btn"
-						>
-							Copy
-						</button>
-					</div>
-
-					<div class="shorten-copy" >
-						<p class="shorten-copy__original">
-							https://www.frontendmentor.io
-						</p>
-						<hr class="shorten-copy__line">
-						<p class="shorten-copy__shorten">https://sho.ly/k4IKyk</p>
-						<button
-							class="button button--primary button--full-width js-copy-btn"
-						>
-							Copy
-						</button>
 					</div> -->
 				</div>
 
