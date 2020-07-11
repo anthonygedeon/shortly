@@ -6,7 +6,7 @@
     @include padding(2em, null, 1em, null);
 
     @include respond-to('medium') {
-        @include padding(2em, null, 7em, null);
+        @include padding(2em, null, $url-spacing, null);
     }
 
 	&__container {

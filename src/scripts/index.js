@@ -231,7 +231,14 @@ const Controller = ((model, view) => {
     });
 
     view.menu.addEventListener('click', () => {
+        
+        if (view.menuModal.classList.contains('menu-modal--show')) {
+            view.menuModal.classList.toggle('menu-modal--hide');
+            return;
+        }
+
         view.menuModal.classList.toggle('menu-modal--show');
+        
     });
 
 })(Model, View);

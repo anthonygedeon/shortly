@@ -1,8 +1,12 @@
 .card-components {
     position: relative;
+
+    display: flex;
+    flex-direction: column;
     
     @include respond-to('large') {
         display: flex;
+        flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
@@ -11,10 +15,12 @@
 	&::before {
 		@include pseudo;
 		top: 0px;
-		left: calc(100% / 2);
+		// left: calc(100% / 2);
 		background-color: $base-color;
 		height: 100%;
-		width: 7px;
+        width: 7px;
+        align-self: center;
+
         
         @include respond-to('large') {
             transform: rotate(180deg);
