@@ -3,6 +3,20 @@ import '../scss/main.scss';
 import data from './data';
 
 const Model = (() => {
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDI91hBAO-SkieYnnvJSzdyQ41whSP9IyI",
+        authDomain: "shortly-7217a.firebaseapp.com",
+        databaseURL: "https://shortly-7217a.firebaseio.com",
+        projectId: "shortly-7217a",
+        storageBucket: "shortly-7217a.appspot.com",
+        messagingSenderId: "501307149324",
+        appId: "1:501307149324:web:d7eb8ddf44c6107f247229"
+    };
+    
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
     const newData = [...data];
 
     const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
