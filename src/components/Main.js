@@ -94,7 +94,8 @@ const CardText = styled(Text)`
     text-align: center;
 	margin: 1em 0 0 0;
     color: ${color.primaryText};
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    line-height: 1.5rem;
 
 	@media screen and (min-width: ${breakpoints.md}) {
 		text-align: left;
@@ -134,7 +135,7 @@ const Main = () => {
 			<Container>
 
                 <UrlShortener />
-                
+
 				<MainSection>
 					<SectionTitle>Advanced Statistics</SectionTitle>
 					<SectionText>

@@ -26,7 +26,7 @@ const CreateUrlCard = styled.form`
 
 	@media screen and (min-width: ${breakpoints.md}) {
 		background-image: url(${bgShortenDesktop});
-		padding: 3em 4em;
+		padding: 3em;
 	}
 `;
 
