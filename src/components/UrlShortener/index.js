@@ -196,7 +196,11 @@ const UrlShortener = () => {
 	]);
 
 	return (
-		<Container>
+		<div style={{
+            position: 'relative',
+            top: '-70px',
+            marginBottom: '4em'
+        }}>
 			<CreateUrlCard method="GET">
 				<Row>
 					<Col>
@@ -218,7 +222,7 @@ const UrlShortener = () => {
 			</CreateUrlCard>
 
 			<UrlList urls={urls} />
-		</Container>
+		</div>
 	);
 };
 

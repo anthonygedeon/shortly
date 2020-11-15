@@ -3,15 +3,17 @@ import styled from 'styled-components';
 
 
 import Header from './Header';
-import UrlShortener from './UrlShortener/index';
 import Main from './Main';
+import Cta from './CTA';
+import Footer from './Footer';
 
 function App() {
 	return (
 		<div className="app">
 			<Header />
-            <UrlShortener />
             <Main />
+            <Cta />
+            <Footer />
 		</div>
 	);
 }

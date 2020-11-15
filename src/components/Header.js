@@ -59,7 +59,7 @@ const HeaderText = styled(Text)`
 `;
 
 const Header = () => (
-	<header style={{ padding: '2em 0' }}>
+	<header style={{ padding: '2em 0 7em 0' }}>
 		<Container>
 			<Row between center={true}>
 				<div style={{ marginRight: '2em' }}>

@@ -4,10 +4,10 @@ import { breakpoints } from './variables';
 export const Container = styled.div`
     width: 100%;
 	max-width: 80%;
-	margin: 0 auto;
-
+    margin: 0 auto;
+    
 	@media screen and (min-width: ${breakpoints.lg}) {
-		max-width: 65%;
+		max-width: 79%;
 	}
 `;
 

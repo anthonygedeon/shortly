@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import UrlShortener from './UrlShortener/index';
+
 import { color, breakpoints } from '../styles/variables';
 import { Container } from '../styles/Grid';
 import { Text } from '../styles/helpers';
@@ -12,10 +14,15 @@ import CustomizableIcon from '../images/icon-fully-customizable.svg';
 import InfoCard from './InfoCard';
 
 const Content = styled.main`
+    padding: 5em 0 10em 0;
 	background-color: ${color.mainBackground};
 `;
 
 const MainSection = styled.section`
+    margin-bottom: 5em;
+    @media screen and (min-width: ${breakpoints.md}) {
+        margin-bottom: 10rem;
+    }
 `;
 
 const SectionTitle = styled.h3`
@@ -41,13 +48,30 @@ const SectionText = styled(Text)`
 `;
 
 const CardLayout = styled.div`
+    position: relative;
 
-    margin: 3em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &::before {
+        content: '';
+        width: 6px;
+        height: 100%;
+        background-color: ${color.primaryAccent};
+        position: absolute;
+    }
 
     @media screen and (min-width: ${breakpoints.md}) {
-        display: flex;
-        align-items: center;
         justify-content: space-between;
+        flex-direction: row;
+        &::before {
+            content: '';
+            width: 100%;
+            height: 6px;
+            background-color: ${color.primaryAccent};
+            position: absolute;
+        }
     }
 
 `;
@@ -68,9 +92,9 @@ const CardTitle = styled.h3`
 const CardText = styled(Text)`
 
     text-align: center;
-	margin: 1em 0;
+	margin: 1em 0 0 0;
     color: ${color.primaryText};
-    font-size: 1rem;
+    font-size: 0.95rem;
 
 	@media screen and (min-width: ${breakpoints.md}) {
 		text-align: left;
@@ -87,9 +111,9 @@ const CardImageBg = styled.div`
     align-items: center;
     justify-content: center;
     background-color: ${color.primaryBackground};
-    padding: 1em;
+    padding: 1.225em;
     border-radius: 50%;
-    position: relative;
+    position: absolute;
     top: -40px;
 
     @media screen and (min-width: ${breakpoints.md}) {
@@ -97,10 +121,20 @@ const CardImageBg = styled.div`
     }
 `;
 
+const CardImg = styled.img`
+    width: 40px;
+    height: 40px;
+`;
+
 const Main = () => {
+
+    
 	return (
 		<Content>
 			<Container>
+
+                <UrlShortener />
+                
 				<MainSection>
 					<SectionTitle>Advanced Statistics</SectionTitle>
 					<SectionText>
@@ -112,7 +146,7 @@ const Main = () => {
 				<CardLayout>
 					<InfoCard>
 						<CardImageBg>
-							<img src={BrandRecognitionIcon} alt="Icon" />
+							<CardImg src={BrandRecognitionIcon} alt="Icon" />
 						</CardImageBg>
 						<CardTitle>Brand Recognition</CardTitle>
 						<CardText>
@@ -124,7 +158,7 @@ const Main = () => {
 
 					<InfoCard>
 						<CardImageBg>
-							<img src={DetailRecordIcon} alt="Icon" />
+							<CardImg src={DetailRecordIcon} alt="Icon" />
 						</CardImageBg>
 						<CardTitle>Detailed Records</CardTitle>
 						<CardText>
@@ -136,7 +170,7 @@ const Main = () => {
 
 					<InfoCard>
 						<CardImageBg>
-							<img src={CustomizableIcon} alt="Icon" />
+							<CardImg src={CustomizableIcon} alt="Icon" />
 						</CardImageBg>
 						<CardTitle>Fully Customizable</CardTitle>
 						<CardText>
