@@ -51,9 +51,6 @@ const HeaderText = styled(Text)`
 
 	@media screen and (min-width: ${breakpoints.md}) {
 		text-align: left;
-	}
-
-	@media screen and (min-width: ${breakpoints.xl}) {
 		max-width: 80%;
 	}
 `;

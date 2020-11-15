@@ -40,6 +40,11 @@ const CopyUrlCard = styled.div`
 
 const CopyOriginalUrl = styled.span`
 	color: ${color.primaryHeading};
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 98%;
+    white-space: nowrap;
+    display: block;
 `;
 
 const CopyShortenedUrl = styled.a`
@@ -97,9 +102,13 @@ const Warning = styled.span`
 	display: block;
 `;
 
+const ColTemp2 = styled(Col)`
+    flex-grow: 4;
+`;
+
 const ColTemp = styled(Col)`
 	@media screen and (min-width: ${breakpoints.md}) {
-		flex: 0 0 16%;
+		flex: 1 0 10%;
 	}
 `;
 
@@ -203,7 +212,7 @@ const UrlShortener = () => {
         }}>
 			<CreateUrlCard method="GET">
 				<Row>
-					<Col>
+					<ColTemp2>
 						<UrlInputContainer>
 							<UrlInput
 								tabIndex="0"
@@ -213,7 +222,7 @@ const UrlShortener = () => {
 							/>
 							{/* <Warning>Please add a link</Warning> */}
 						</UrlInputContainer>
-					</Col>
+					</ColTemp2>
 
 					<ColTemp>
 						<UrlButton type="button">Shorten it!</UrlButton>

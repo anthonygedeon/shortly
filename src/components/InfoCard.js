@@ -7,7 +7,7 @@ import { color, breakpoints } from '../styles/variables';
 const Card = styled.section`
     background-color: ${color.primary};
     position: relative;
-    padding: 3em 1.5em 2em 1.5em;
+    padding: 4em 1.5em 2em 1.5em;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,6 @@ const Card = styled.section`
         &:nth-child(1),
         &:nth-child(2),
         &:nth-child(3) {
-            align-self: stretch;
             flex: 1 0 0;
         }
 

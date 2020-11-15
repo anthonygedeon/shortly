@@ -14,7 +14,7 @@ import CustomizableIcon from '../images/icon-fully-customizable.svg';
 import InfoCard from './InfoCard';
 
 const Content = styled.main`
-    padding: 5em 0 10em 0;
+    padding: 0 0 10em 0;
 	background-color: ${color.mainBackground};
 `;
 
@@ -41,6 +41,7 @@ const SectionText = styled(Text)`
 	margin-top: 1em;
 	color: ${color.primaryText};
 	text-align: center;
+    max-width: 100%;
     margin: 1em auto;
 	@media screen and (min-width: ${breakpoints.md}) {
 		max-width: 40%;
@@ -57,7 +58,7 @@ const CardLayout = styled.div`
     &::before {
         content: '';
         width: 6px;
-        height: 100%;
+        height: 99%;
         background-color: ${color.primaryAccent};
         position: absolute;
     }
@@ -67,10 +68,11 @@ const CardLayout = styled.div`
         flex-direction: row;
         &::before {
             content: '';
-            width: 100%;
+            width: 99%;
             height: 6px;
             background-color: ${color.primaryAccent};
             position: absolute;
+            top: 150px;
         }
     }
 
@@ -85,6 +87,7 @@ const CardTitle = styled.h3`
 	@media screen and (min-width: ${breakpoints.md}) {
         font-size: 1.5rem;
 		text-align: left;
+        width: 100%;
 	}
 
 `;
@@ -94,16 +97,13 @@ const CardText = styled(Text)`
     text-align: center;
 	margin: 1em 0 0 0;
     color: ${color.primaryText};
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     line-height: 1.5rem;
 
 	@media screen and (min-width: ${breakpoints.md}) {
 		text-align: left;
 	}
 
-	@media screen and (min-width: ${breakpoints.xl}) {
-		max-width: 80%;
-	}
 `;
 
 const CardImageBg = styled.div`
@@ -147,7 +147,7 @@ const Main = () => {
 				<CardLayout>
 					<InfoCard>
 						<CardImageBg>
-							<CardImg src={BrandRecognitionIcon} alt="Icon" />
+							<CardImg src={BrandRecognitionIcon} alt="Bar chart icon" />
 						</CardImageBg>
 						<CardTitle>Brand Recognition</CardTitle>
 						<CardText>
@@ -159,7 +159,7 @@ const Main = () => {
 
 					<InfoCard>
 						<CardImageBg>
-							<CardImg src={DetailRecordIcon} alt="Icon" />
+							<CardImg src={DetailRecordIcon} alt="Speedometer icon" />
 						</CardImageBg>
 						<CardTitle>Detailed Records</CardTitle>
 						<CardText>
@@ -171,13 +171,13 @@ const Main = () => {
 
 					<InfoCard>
 						<CardImageBg>
-							<CardImg src={CustomizableIcon} alt="Icon" />
+							<CardImg src={CustomizableIcon} alt="Customization icon" />
 						</CardImageBg>
 						<CardTitle>Fully Customizable</CardTitle>
 						<CardText>
 							Improve brand awareness and content recoverability
 							through customizable links, supercharging audience
-							engagement
+							engagement.
 						</CardText>
 					</InfoCard>
 				</CardLayout>

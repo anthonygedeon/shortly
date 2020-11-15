@@ -10,11 +10,18 @@ export const Button = styled.button`
 	cursor: pointer;
     transition: background-color 0.2s linear;
     text-transform: capitalize;
+    outline: none;
+
 
 	&:hover,
-	&:active,
-	&:focus {
-		background-color: hsl(180deg, 66%, 79%);
+	&:active {
+		background-color: hsl(180deg, 66%, 59%);
+	}
+
+    &:focus {
+		transition: box-shadow 0.2s ease-in;
+		box-shadow: 1px 0px 0px 6px  hsl(180deg, 66%, 79%);;
+		outline: none;
 	}
 `;
 

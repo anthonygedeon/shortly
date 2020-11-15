@@ -5,10 +5,19 @@ export const Container = styled.div`
     width: 100%;
 	max-width: 80%;
     margin: 0 auto;
-    
-	@media screen and (min-width: ${breakpoints.lg}) {
-		max-width: 79%;
+
+    @media screen and (min-width: ${breakpoints.md}) {
+		max-width: 85%;
 	}
+
+    @media screen and (min-width: ${breakpoints.lg}) {
+		max-width: 860px;
+	}
+
+    @media screen and (min-width: ${breakpoints.xl}) {
+		max-width: 1124px;
+	}
+
 `;
 
 export const Col = styled.div`
