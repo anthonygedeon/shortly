@@ -19,3 +19,21 @@ export const breakpoints = {
     xl: '1280px'
 
 };
+
+export const spacing = {
+    contentPadding: '2em 0 2em 0',
+};
+
+export const font = {
+
+    primaryFamily: 'Poppins, sans-serif',
+
+    weightMedium: 500,
+    weightBold: 700,
+
+    sizeHeading: '',
+    sizeSubHeading: '',
+    sizeBodyText: '1.125rem',
+    sizeLinkText: ''
+};
+

@@ -7,7 +7,7 @@ import Navigation from './Navigation';
 
 import { PillButton } from './Button';
 import { Container, Col } from '../styles/Grid';
-import { color, breakpoints } from '../styles/variables';
+import { color, breakpoints, spacing } from '../styles/variables';
 import { Text } from '../styles/helpers';
 
 const Row = styled.div`
@@ -56,7 +56,7 @@ const HeaderText = styled(Text)`
 `;
 
 const Header = () => (
-	<header style={{ padding: '2em 0 7em 0' }}>
+	<header style={{ padding: spacing.contentPadding, marginBottom: '8em' }}>
 		<Container>
 			<Row between center={true}>
 				<div style={{ marginRight: '2em' }}>

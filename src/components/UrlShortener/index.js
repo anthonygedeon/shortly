@@ -207,10 +207,10 @@ const UrlShortener = () => {
 	return (
 		<div style={{
             position: 'relative',
-            top: '-70px',
+            top: '-110px',
             marginBottom: '4em'
         }}>
-			<CreateUrlCard method="GET">
+			<CreateUrlCard method="POST" action="/api">
 				<Row>
 					<ColTemp2>
 						<UrlInputContainer>

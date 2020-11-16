@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import UrlShortener from './UrlShortener/index';
 
-import { color, breakpoints } from '../styles/variables';
+import { color, breakpoints, spacing } from '../styles/variables';
 import { Container } from '../styles/Grid';
 import { Text } from '../styles/helpers';
 
@@ -14,7 +14,7 @@ import CustomizableIcon from '../images/icon-fully-customizable.svg';
 import InfoCard from './InfoCard';
 
 const Content = styled.main`
-    padding: 0 0 10em 0;
+    padding: ${spacing.contentPadding};
 	background-color: ${color.mainBackground};
 `;
 
@@ -54,6 +54,7 @@ const CardLayout = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 8em;
 
     &::before {
         content: '';
