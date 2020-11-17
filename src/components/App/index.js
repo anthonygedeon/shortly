@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-
+import React from 'react';
+import { ScreenClassProvider } from 'react-grid-system';
 
 import Header from '../Header';
-import Main from '../Main';
+import MainSection from '../MainSection';
 import Cta from '../CTA';
 import Footer from '../Footer';
 
 function App() {
 	return (
 		<div className="app">
-			<Header />
-            <Main />
-            <Cta />
-            <Footer />
+			<ScreenClassProvider>
+				<Header />
+				<MainSection />
+				<Cta />
+				<Footer />
+			</ScreenClassProvider>
 		</div>
 	);
 }

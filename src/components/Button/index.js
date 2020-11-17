@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color, breakpoints } from '../styles/variables';
+import { color, breakpoints } from '../../styles/variables';
 
 export const Button = styled.button`
 	padding: 0.75em 0;
