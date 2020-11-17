@@ -42,15 +42,15 @@
 			"last 1 safari version"
 		]
 	},
-	"lint-stage": {
-		".": [
+	"lint-staged": {
+		"**/*": [
             "prettier --single-quote --trailing-comma es5 --write",
             "git add"
         ]
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-stage"
+            "pre-commit": "lint-staged"
         }
     },
 	"devDependencies": {
