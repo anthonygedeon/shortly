@@ -22,7 +22,8 @@
 		"eject": "react-scripts eject",
 		"test": "react-scripts test",
 		"test:nowatch": "react-scripts test --watchAll=false",
-		"test:cucumber": "cucumber-js"
+        "test:cucumber": "cucumber-js",
+        "lint": "prettier --write src/**/*.js"
 	},
 	"eslintConfig": {
 		"extends": [

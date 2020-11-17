@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import StyledCard from "./style";
+import StyledCard from './style';
 
 const Card = ({ children }) => <StyledCard>{children}</StyledCard>;
 
