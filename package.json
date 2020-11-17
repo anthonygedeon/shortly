@@ -42,8 +42,20 @@
 			"last 1 safari version"
 		]
 	},
+	"lint-stage": {
+		".": [
+            "prettier --single-quote --trailing-comma es5 --write",
+            "git add"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-stage"
+        }
+    },
 	"devDependencies": {
 		"babel-plugin-macros": "^2.8.0",
-		"jest-cucumber": "^3.0.0"
+		"jest-cucumber": "^3.0.0",
+		"prettier": "2.1.2"
 	}
 }

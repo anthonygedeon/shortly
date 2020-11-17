@@ -1,16 +1,15 @@
-import { CSS_SIZE_UNIT_REGEX } from './RegExps';
+import { CSS_SIZE_UNIT_REGEX } from "./RegExps";
 
 export function cssSizeToInt(object) {
-	const result = {};
+  const result = {};
 
-	for (let [key, value] of Object.entries(object)) {
-		const [number, _] = value.split(CSS_SIZE_UNIT_REGEX);
+  for (let [key, value] of Object.entries(object)) {
+    const [number, _] = value.split(CSS_SIZE_UNIT_REGEX);
 
-		const convertToNumber = Number(number);
+    const convertToNumber = Number(number);
 
-		result[key] = convertToNumber;
-	}
+    result[key] = convertToNumber;
+  }
 
-	return result;
+  return result;
 }
-
