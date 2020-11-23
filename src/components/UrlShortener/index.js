@@ -19,38 +19,59 @@ import {
 } from './style';
 
 const UrlShortener = () => {
+    const baseUrl = 'http://localhost:5000';
 
-    const baseUrl = 'http://localhost:5000'
+    const MAX_SHORT_LINKS = 5;
+    const DEFAULT_ERROR_MESSAGE = 'Please add a link';
 
+    const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE);
+    const [isError, setIsError] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [urls, setUrls] = useState([]);
 
-
     const handleInputChange = (event) => {
-
         setInputValue(event.target.value);
-
     };
 
-    const handleButton = async (event) => {
+    const removeShortLink = () => {
 
-        console.log(event)
+        setUrls((oldState) => [...oldState.slice(0, MAX_SHORT_LINKS)]);
+
+    }
+
+    const handleButton = async (event) => {
+        setIsError(false);
 
         event.preventDefault();
-        
-        const response = await fetch(
-            `${baseUrl}/api/v1/shorten?long_url=${inputValue}`, {
-            method: 'POST'
-        });
 
-        const data = await response.json();
+        try {
+            const response = await fetch(
+                `${baseUrl}/api/v1/shorten?long_url=${inputValue}`,
+                {
+                    method: 'POST',
+                }
+            );
 
-        console.log(data)
+            const data = await response.json();
 
-        setUrls(oldState => [...oldState, data]);
-        
+            if (data.error) {
+                console.log(data.error)
+                setErrorMessage(data.error);
+                throw errorMessage;
+            }
+
+            setUrls((oldState) => [...oldState, data]);
+
+            if (urls.length === MAX_SHORT_LINKS) {
+                // remove the last element
+            }
+
+        } catch (error) {
+            setIsError(true);
+        }
+
         setInputValue('');
-    }
+    };
 
     return (
         <ShortLinkContainer>
@@ -65,14 +86,16 @@ const UrlShortener = () => {
                                 value={inputValue}
                                 onChange={handleInputChange}
                             />
-                            {/* <Warning>Please add a link</Warning> */}
+                            {isError ? (
+                                <Warning>{errorMessage}</Warning>
+                            ) : null}
                         </MessageContainer>
                     </Col>
 
                     <Col sm={12} md={4} lg={2}>
-                        <UrlButton 
-                        onClick={handleButton}
-                        type="button">Shorten it!</UrlButton>
+                        <UrlButton onClick={handleButton} type="button">
+                            Shorten it!
+                        </UrlButton>
                     </Col>
                 </Row>
             </ShortLinkForm>

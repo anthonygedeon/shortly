@@ -37,3 +37,27 @@ export const UrlButton = styled(Button)`
         padding: 1rem 0;
     }
 `;
+
+export const CopyButton = styled(Button)`
+    border-radius: 5px;
+    width: 100%;
+
+    background-color: ${(props) =>
+        props.copied ? color.primaryBackground : color.primaryAccent};
+
+    &:hover,
+    &:active {
+        background-color: ${(props) =>
+            props.copied ? 'hsl(257, 27%, 56%)' : 'hsl(180, 66%, 59%)'};
+    }
+
+    &:focus {
+        box-shadow: 1px 0px 0px 6px
+            ${(props) =>
+                props.copied ? 'hsl(257, 27%, 56%)' : 'hsl(180, 66%, 59%)'};
+    }
+
+    @media screen and (min-width: ${breakpoints.md}) {
+        padding: 1rem 0;
+    }
+`;

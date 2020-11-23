@@ -5,12 +5,11 @@ import React, {
     useMemo,
     useRef,
 } from 'react';
-import { css } from 'styled-components/macro'
+import { css } from 'styled-components/macro';
 
-import { Link } from 'react-router-dom';
 import { color, breakpoints } from '../../styles/variables';
 
-import { UrlButton } from '../Button';
+import { CopyButton } from '../Button';
 import { Row, Col, Visible } from 'react-grid-system';
 
 import {
@@ -26,8 +25,40 @@ const noMargin = {
 };
 
 const Url = ({ longUrl, shortUrl }) => {
+    const SUCCESS_COPY_STATE = 'Copied';
+    const NORMAL_COPY_STATE = 'Copy';
+
     const [isPressed, setIsPressed] = useState(false);
-    const [copiedUrl, setCopiedUrl] = useState('');
+    const [copiedUrl, setCopiedUrl] = useState(NORMAL_COPY_STATE);
+
+    const shortLinkText = useRef();
+
+    const copyElementToClipboard = (node) => {
+        window.getSelection().removeAllRanges();
+
+        const range = document.createRange();
+
+        range.selectNode(typeof node === 'string' ? null : node);
+
+        window.getSelection().addRange(range);
+
+        document.execCommand('copy');
+
+        window.getSelection().removeAllRanges();
+    };
+
+    const copyToClipBoard = () => {
+        copyElementToClipboard(shortLinkText.current);
+
+        setCopiedUrl(SUCCESS_COPY_STATE);
+
+        setIsPressed(true);
+
+        setTimeout(() => {
+            setCopiedUrl(NORMAL_COPY_STATE);
+            setIsPressed(false);
+        }, 2000);
+    };
 
     return (
         <CopyUrlCard>
@@ -38,8 +69,6 @@ const Url = ({ longUrl, shortUrl }) => {
                 <Visible xs sm md>
                     <AvailableUrlCardLine />
                 </Visible>
-                {/* @todo short link margin right issue */}
-                {/*  @todo fix issue with margin bottom  */}
                 <Col
                     sm={12}
                     lg="content"
@@ -48,18 +77,24 @@ const Url = ({ longUrl, shortUrl }) => {
 
                         @media screen and (min-width: ${breakpoints.lg}) {
                             margin-bottom: 0;
-                            /* margin-right: 1em; */
                         }
                     `}
                 >
                     <ShortLink>
-                        <a href={shortUrl} target="_blank"  rel="noopener noreferrer">
+                        <a
+                            href={shortUrl}
+                            ref={shortLinkText}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             {shortUrl}
                         </a>
                     </ShortLink>
                 </Col>
                 <Col sm={12} lg={2}>
-                    <UrlButton>Copy</UrlButton>
+                    <CopyButton copied={isPressed} onClick={copyToClipBoard}>
+                        {copiedUrl}
+                    </CopyButton>
                 </Col>
             </Row>
         </CopyUrlCard>
@@ -67,12 +102,13 @@ const Url = ({ longUrl, shortUrl }) => {
 };
 
 const UrlList = ({ urls }) => {
-    return (<>
-        {urls.map((url) => (
-            <Url key={url.data.hashId} {...url.data} />
-        ))}
-    </>
-    )
-        };
+    return (
+        <>
+            {urls.map((url) => (
+                <Url key={url.data.hashId} {...url.data} />
+            ))}
+        </>
+    );
+};
 
 export default UrlList;
