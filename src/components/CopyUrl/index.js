@@ -5,8 +5,10 @@ import React, {
     useMemo,
     useRef,
 } from 'react';
+import { css } from 'styled-components/macro'
 
 import { Link } from 'react-router-dom';
+import { color, breakpoints } from '../../styles/variables';
 
 import { UrlButton } from '../Button';
 import { Row, Col, Visible } from 'react-grid-system';
@@ -23,15 +25,15 @@ const noMargin = {
     marginLeft: '0px',
 };
 
-const Url = ({ originalUrl, shortenedUrl }) => {
+const Url = ({ longUrl, shortUrl }) => {
     const [isPressed, setIsPressed] = useState(false);
     const [copiedUrl, setCopiedUrl] = useState('');
 
     return (
         <CopyUrlCard>
             <Row align="center" justify="around" style={noMargin}>
-                <Col sm={12} lg={8}>
-                    <OriginalUrl>{originalUrl}</OriginalUrl>
+                <Col sm={12} lg={6}>
+                    <OriginalUrl>{longUrl}</OriginalUrl>
                 </Col>
                 <Visible xs sm md>
                     <AvailableUrlCardLine />
@@ -40,15 +42,20 @@ const Url = ({ originalUrl, shortenedUrl }) => {
                 {/*  @todo fix issue with margin bottom  */}
                 <Col
                     sm={12}
-                    lg={2}
-                    style={{
-                        marginBottom: '1em',
-                    }}
+                    lg="content"
+                    css={`
+                        margin-bottom: 1em;
+
+                        @media screen and (min-width: ${breakpoints.lg}) {
+                            margin-bottom: 0;
+                            /* margin-right: 1em; */
+                        }
+                    `}
                 >
                     <ShortLink>
-                        <Link to={shortenedUrl} target="_blank">
-                            {shortenedUrl}
-                        </Link>
+                        <a href={shortUrl} target="_blank"  rel="noopener noreferrer">
+                            {shortUrl}
+                        </a>
                     </ShortLink>
                 </Col>
                 <Col sm={12} lg={2}>
@@ -59,12 +66,13 @@ const Url = ({ originalUrl, shortenedUrl }) => {
     );
 };
 
-const UrlList = ({ urls }) => (
-    <>
+const UrlList = ({ urls }) => {
+    return (<>
         {urls.map((url) => (
-            <Url key={url.id} {...url} />
+            <Url key={url.data.hashId} {...url.data} />
         ))}
     </>
-);
+    )
+        };
 
 export default UrlList;

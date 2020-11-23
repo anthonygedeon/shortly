@@ -19,35 +19,42 @@ import {
 } from './style';
 
 const UrlShortener = () => {
+
+    const baseUrl = 'http://localhost:5000'
+
     const [inputValue, setInputValue] = useState('');
-    const [urls, setUrls] = useState([
-        {
-            id: '0',
-            originalUrl: 'https://www.frontendmentor.io',
-            shortenedUrl: 'http://rel.ink/k41Ikyk',
-        },
+    const [urls, setUrls] = useState([]);
 
-        {
-            id: '1',
-            originalUrl: 'https://www.frontendmentor.io',
-            shortenedUrl: 'http://rel.ink/k41Ikyk',
-        },
-
-        {
-            id: '2',
-            originalUrl: 'https://www.frontendmentor.io',
-            shortenedUrl: 'http://rel.ink/k41Ikyk',
-        },
-    ]);
 
     const handleInputChange = (event) => {
 
+        setInputValue(event.target.value);
 
     };
 
+    const handleButton = async (event) => {
+
+        console.log(event)
+
+        event.preventDefault();
+        
+        const response = await fetch(
+            `${baseUrl}/api/v1/shorten?long_url=${inputValue}`, {
+            method: 'POST'
+        });
+
+        const data = await response.json();
+
+        console.log(data)
+
+        setUrls(oldState => [...oldState, data]);
+        
+        setInputValue('');
+    }
+
     return (
         <ShortLinkContainer>
-            <ShortLinkForm method="POST" action="/api">
+            <ShortLinkForm>
                 <Row justify="between">
                     <Col sm={12} md={8} lg={10}>
                         <MessageContainer>
@@ -63,7 +70,9 @@ const UrlShortener = () => {
                     </Col>
 
                     <Col sm={12} md={4} lg={2}>
-                        <UrlButton type="button">Shorten it!</UrlButton>
+                        <UrlButton 
+                        onClick={handleButton}
+                        type="button">Shorten it!</UrlButton>
                     </Col>
                 </Row>
             </ShortLinkForm>
