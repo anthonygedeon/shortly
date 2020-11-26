@@ -19,7 +19,7 @@ import {
 } from './style';
 
 const UrlShortener = () => {
-    const baseUrl = 'http://localhost:5000';
+    const baseUrl = 'https://shortly-restful-api.herokuapp.com';
 
     const MAX_SHORT_LINKS = 5;
     const DEFAULT_ERROR_MESSAGE = 'Please add a link';
@@ -34,9 +34,7 @@ const UrlShortener = () => {
     };
 
     const removeShortLink = () => {
-
         setUrls((oldState) => [...oldState.slice(0, MAX_SHORT_LINKS)]);
-
     }
 
     const handleButton = async (event) => {
@@ -60,14 +58,18 @@ const UrlShortener = () => {
                 throw errorMessage;
             }
 
-            setUrls((oldState) => [...oldState, data]);
+            setUrls((oldState) =>  [data, ...oldState]);
 
             if (urls.length === MAX_SHORT_LINKS) {
-                // remove the last element
+                removeShortLink();
             }
 
         } catch (error) {
             setIsError(true);
+
+            setTimeout(() => {
+                setIsError(false);
+            }, 4000);
         }
 
         setInputValue('');
