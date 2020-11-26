@@ -63,7 +63,7 @@ const Url = ({ longUrl, shortUrl }) => {
     return (
         <CopyUrlCard>
             <Row align="center" justify="around" style={noMargin}>
-                <Col sm={12} lg={6}>
+                <Col sm={12} lg={4}>
                     <OriginalUrl>{longUrl}</OriginalUrl>
                 </Col>
                 <Visible xs sm md>
