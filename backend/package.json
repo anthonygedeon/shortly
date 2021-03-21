@@ -1,0 +1,48 @@
+{
+    "name": "shortlyapi",
+    "version": "0.1.0",
+    "description": "Shortly backend API",
+    "main": "app.js",
+    "scripts": {
+        "start:dev": "nodemon app.js",
+        "test": "jest",
+        "lint": "prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/anthonygedeon/shortlyAPI.git"
+    },
+    "engines": {
+        "node": "12.16.1"
+    },
+    "keywords": [
+        "API",
+        "SQL",
+        "MySQL",
+        "RESTful",
+        "Backend",
+        "Express",
+        "Node"
+    ],
+    "author": "Anthony Gedeon",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/anthonygedeon/shortlyAPI/issues"
+    },
+    "homepage": "https://github.com/anthonygedeon/shortlyAPI#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "date-fns": "^2.16.1",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "mysql": "^2.18.1",
+        "nanoid": "^3.1.16",
+        "nodemon": "^2.0.6"
+    },
+    "devDependencies": {
+        "jest": "^26.6.3",
+        "prettier": "2.1.2",
+        "supertest": "^6.0.1"
+    }
+}
