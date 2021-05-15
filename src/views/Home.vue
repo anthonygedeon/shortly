@@ -1,17 +1,25 @@
 <template>
-  <div class="home">
+  <header class="header">
     <Navbar />
-  </div>
+    <Hero />
+  </header>
 </template>
 
 <script>
-// @ is an alias to /src
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 
 export default {
   name: "Home",
   components: {
     Navbar,
+    Hero,
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.header {
+  margin-top: 2rem;
+}
+</style>
