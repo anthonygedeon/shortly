@@ -24,6 +24,7 @@
 
 body {
   font-family: var(--main-font-family);
+  margin: 0;
 }
 
 img {
@@ -55,6 +56,10 @@ img {
   &--md {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  &--box {
+    border-radius: 5px;
   }
 
   &--lg {
