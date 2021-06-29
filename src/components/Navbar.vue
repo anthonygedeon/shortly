@@ -35,7 +35,7 @@
         <a href="#" class="menu-modal__link">Resources</a>
         <div class="menu-modal__line"></div>
         <a href="#" class="menu-modal__link">Login</a>
-        <button class="button button-lg">Sign Up</button>
+        <button class="button button--md">Sign Up</button>
       </div>
     </div>
   </nav>
