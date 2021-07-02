@@ -103,6 +103,10 @@ export default {
 .info {
   padding-bottom: 4rem;
 
+  @media (min-width: 768px) {
+    padding-bottom: 8rem;
+  }
+
   &__heading {
     font-weight: var(--weight-bold);
     color: var(--neutral-dark-blue-color);
@@ -124,12 +128,24 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   &::before {
     content: "";
     height: 100%;
     width: 10px;
     background-color: var(--main-accent-color);
     position: absolute;
+
+    @media (min-width: 768px) {
+    width: 100%;
+    height: 10px;
+  }
+
   }
 }
 </style>

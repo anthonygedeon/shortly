@@ -21,8 +21,27 @@ export default {
   padding: 0 2rem 1rem 2rem;
   position: relative;
 
+  @media (min-width: 768px) {
+    align-items: flex-start;
+    width: calc(100% / 3 - 6rem);
+  }
+
   & + & {
     margin-top: 6rem;
+
+    @media (min-width: 768px) {
+      margin-top: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    &:nth-child(2) {
+      margin-top: 6rem;
+    }
+
+    &:last-child {
+      margin-top: 12rem;
+    }
   }
 
   &__img-container {
@@ -46,6 +65,9 @@ export default {
     color: var(--neutral-gray-violet-color);
     text-align: center;
     font-size: 0.95rem;
+    @media (min-width: 768px) {
+      text-align: left;
+    }
   }
 }
 </style>

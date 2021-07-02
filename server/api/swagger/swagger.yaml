@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: Shortly API
+  description: Redirect clients with mask url to original url 
+  version: 0.1.0
+  
+servers:
+  - url: https://{environment}.shortly.com
+    variables:
+      environment:
+        default: api
+        enum:
+          - api
+          - api.dev
+          - api.staging
+  
+paths:
+  /{hash}:
+    get:
+      summary: Redirect user to original URL
+      parameters:
+      - in: path
+        name: hash
+        required: true
+        schema:
+          type: string
+          maxLength: 7
+        description: Redirect
+      responses:
+        "302":
+          description: Redirect user with hash
+          
+  /urls:
+    get:
+      summary: Gets a list of urls.
+      responses:
+        "200":
+          description: A JSON array of urls
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    hash:
+                      type: string
+                      format: uuid
+                      maxLength: 7
+                    original_url:
+                      type: string
+                      format: url
+                    created_at:
+                      type: string
+                      format: date-time
+                    expire_at:
+                      type: string
+                      format: date-time
+                  example:
+                    hash: "3ds832d"
+                    original_url: "https://www.youtube.com"
+                    created_at: "2019-01-19 03:14:07"
+                    expire_at: "2024-01-19 03:14:07"
+        "401":
+          description: A JSON object of error report
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_message: 
+                    type: string
+                  status_code:
+                    type: number
+                example:
+                  status_message: "Invalid API key: You must be granted a valid key."
+                  status_code: 401
+                  
+        "404":
+          description: A JSON object of error report
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_message: 
+                    type: string
+                  status_code:
+                    type: number
+                example:
+                  status_message: "The resource you requested could not be found."
+                  status_code: 404
+
+    post:
+      summary: Create a new short url
+      parameters:
+        - in: query
+          name: url
+          schema:
+            type: string
+          example: https://www.youtube.com # ?urls=https://www.youtube.com
+              
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                original_url:
+                  type: string
+              example:
+                original_url: "https://www.youtube.com"
+      responses:
+        '201':
+          description: Created

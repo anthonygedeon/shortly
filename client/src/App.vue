@@ -3,6 +3,32 @@
 </template>
 
 <style lang="scss">
+$break-points: (
+  "small": 640px,
+  "medium": 768px,
+  "large": 1024px,
+  "extra-large": 1280px,
+) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($break-points, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: map-get($break-points, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+              + "Available breakpoints are: #{map-keys($break-points)}.";
+  }
+}
+
 :root {
   --white-color: hsl(0, 0%, 100%);
   --main-accent-color: hsl(180, 66%, 49%);
@@ -35,6 +61,10 @@ img {
   width: 100%;
   max-width: 90%;
   margin: 0 auto;
+
+  @media (min-width: 1080px) {
+    max-width: 1190px
+  }
 
   & .row {
     display: flex;

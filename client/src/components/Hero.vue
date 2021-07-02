@@ -3,6 +3,7 @@
     <div class="hero__row">
       <div class="hero__img-container">
         <img
+          class="hero__img"
           src="../assets/illustration-working.svg"
           alt="person on computer working"
         />
@@ -27,14 +28,37 @@ export default {
 
 <style lang="scss" scoped>
 .hero {
+  padding: 2rem 0;
+
   &__cta {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
 
+  &__row {
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   &__img-container {
     margin-top: 2rem;
+    @media (min-width: 768px) {
+      order: 20;
+    }
+  }
+
+  &__cta {
+    @media (min-width: 768px) {
+      order: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-right: 4rem;
+    }
   }
 
   &__heading {
@@ -43,6 +67,12 @@ export default {
     color: var(--neutral-dark-violet-color);
     margin-bottom: 0.75rem;
     font-size: 2.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 4.5rem;
+      text-align: left;
+    }
+
   }
 
   &__text {
@@ -50,6 +80,10 @@ export default {
     font-size: var(--main-font-size);
     color: var(--neutral-gray-violet-color);
     margin: 0 0 2rem 0;
+    @media (min-width: 768px) {
+      font-size: 1.125rem;
+      text-align: left;
+    }
   }
 }
 </style>
